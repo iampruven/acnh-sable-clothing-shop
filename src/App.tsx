@@ -6,6 +6,15 @@ import Cart from "./Pages/Cart/Cart";
 
 function App() {
   const [page, setPage] = useState("shop");
+  const [allItems, setAllItems] = useState(store);
+  const [cartItems, setCartItems] = useState<any[]>([])
+
+  const onAddToCart = (id:number) => {
+    let list = [];
+    list.push({id, quantity: 1})
+    setCartItems(cartItems.concat(list))
+  };
+
   const onClickViewCart = () => {
     if (page === "shop") {
       setPage("cart");
@@ -16,9 +25,13 @@ function App() {
   return (
     <div>
       {page === "shop" ? (
-        <Shop onClickViewCart={onClickViewCart} />
+        <Shop
+          onAddToCart={onAddToCart}
+          onClickViewCart={onClickViewCart}
+          allItems={allItems}
+        />
       ) : (
-        <Cart onClickViewCart={onClickViewCart} />
+        <Cart cartItems={cartItems} onClickViewCart={onClickViewCart} allItems={allItems} />
       )}
     </div>
   );

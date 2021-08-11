@@ -2,7 +2,7 @@
 
 ## Features
 
-- [] Add item to cart
+- [X] Add item to cart
 - [] Preview an item on character
 - [] Purchase multiple quantities of different items
 - [] Display how much an item cost
