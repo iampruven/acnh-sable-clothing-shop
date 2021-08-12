@@ -6,7 +6,7 @@
     - [X] Add item from store to cart
     - [X] Add item to cart only once
     - [X] Display total cost in cart on cart page
-    - [] Remove items from cart
+    - [X] Remove items from cart
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page

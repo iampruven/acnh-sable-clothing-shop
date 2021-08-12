@@ -9,11 +9,22 @@ export interface CartItem {
   quantity: number;
 }
 
+const calculateTotalCost = (items: any[], cartItems: CartItem[]): number => {
+  return cartItems.reduce((sum, item) => {
+    const itemDetails = items.find(x => x.id === item.id)
+
+    if (!itemDetails) {
+      return sum
+    }
+    return sum + itemDetails.cost
+  }, 0)
+}
+
 function App() {
   const [page, setPage] = useState("shop");
   const [allItems, setAllItems] = useState(store);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [totalCost, setTotalCost] = useState(0);
+ 
 
   const onAddToCart = (id: number) => {
     let list = [];
@@ -29,23 +40,26 @@ function App() {
     }
   };
 
-  const onCalcTotal = (cost: number) => {
-    setTotalCost(totalCost + cost);
-  };
 
+  const onDeleteItemFrCart = (id:number)=>{
+    const item = cartItems.filter((item) => item.id !== id);
+    setCartItems(item)
+  }
+
+  const totalCost = calculateTotalCost(allItems, cartItems)
   return (
     <div>
       {page === "shop" ? (
         <Shop
           cartItems={cartItems}
           totalCost = {totalCost}
-          onCalcTotal={onCalcTotal}
           onAddToCart={onAddToCart}
           onClickViewCart={onClickViewCart}
           allItems={allItems}
         />
       ) : (
         <Cart
+          onDeleteItemFrCart = {onDeleteItemFrCart}
           totalCost = {totalCost}
           cartItems={cartItems}
           onClickViewCart={onClickViewCart}

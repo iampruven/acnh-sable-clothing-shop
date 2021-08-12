@@ -12,6 +12,7 @@ interface CartProps {
     img: string;
   }[];
   totalCost: number;
+  onDeleteItemFrCart: (id:number)=>void;
 }
 
 const Cart: React.FC<CartProps> = ({
@@ -19,6 +20,7 @@ const Cart: React.FC<CartProps> = ({
   allItems,
   cartItems,
   totalCost,
+  onDeleteItemFrCart
 }) => {
   const itemLookUp = (id: number, quantity: number) => {
     const item = allItems.find((item) => item.id === id);
@@ -32,6 +34,7 @@ const Cart: React.FC<CartProps> = ({
         {item.name}
         <img src={item.img} alt={item.name} />
         {item.cost}
+        <button onClick={(ev)=>onDeleteItemFrCart(item.id)}>Delete</button>
       </li>
     );
   };

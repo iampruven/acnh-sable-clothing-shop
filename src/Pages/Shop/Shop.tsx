@@ -11,30 +11,27 @@ interface ShopProps {
     type: string;
     img: string;
   }[];
-  onCalcTotal: (cost: number) => void;
   totalCost: number;
-  cartItems: CartItem[]
+  cartItems: CartItem[];
 }
 
 const Shop: React.FC<ShopProps> = ({
   onClickViewCart,
   allItems,
   onAddToCart,
-  onCalcTotal,
   totalCost,
-  cartItems
+  cartItems,
 }) => {
-  const onDisabledIfInCart = (id:number)=>{
+  const onDisabledIfInCart = (id: number) => {
     const item = cartItems.find((item) => item.id === id);
-    console.log(item)
+    console.log(item);
     if (!item) {
       return false;
-    } else{
-      return true
+    } else {
+      return true;
     }
-    
-  }
-  // console.log(cartItems)
+  };
+
   return (
     <div>
       <div className="item-grid">
@@ -44,10 +41,7 @@ const Shop: React.FC<ShopProps> = ({
             {item.cost}
             <button
               disabled={onDisabledIfInCart(item.id)}
-              onClick={() => {
-                onAddToCart(item.id);
-                onCalcTotal(item.cost);
-              }}
+              onClick={() => onAddToCart(item.id)}
             >
               Add to cart
             </button>
