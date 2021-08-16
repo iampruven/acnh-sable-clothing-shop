@@ -1,9 +1,9 @@
 import { CartItem } from "../../App";
 
-
 interface CartProps {
   onClickViewCart: () => void;
   cartItems: CartItem[];
+  onQuantityChange: (id: number, quantity: number) => void;
   allItems: {
     id: number;
     name: string;
@@ -12,15 +12,16 @@ interface CartProps {
     img: string;
   }[];
   totalCost: number;
-  onDeleteItemFrCart: (id:number)=>void;
+  onDeleteItemFrCart: (id: number) => void;
 }
 
 const Cart: React.FC<CartProps> = ({
   onClickViewCart,
   allItems,
+  onQuantityChange,
   cartItems,
   totalCost,
-  onDeleteItemFrCart
+  onDeleteItemFrCart,
 }) => {
   const itemLookUp = (id: number, quantity: number) => {
     const item = allItems.find((item) => item.id === id);
@@ -30,11 +31,21 @@ const Cart: React.FC<CartProps> = ({
 
     return (
       <li key={item.id}>
-        {quantity}
+        <input
+          id="quantity-items"
+          value={quantity}
+          min="1"
+          onChange={(e) =>
+            e.target.value === ""
+              ? null
+              : onQuantityChange(item.id, parseInt(e.target.value))
+          }
+          type="number"
+        />
         {item.name}
         <img src={item.img} alt={item.name} />
         {item.cost}
-        <button onClick={(ev)=>onDeleteItemFrCart(item.id)}>Delete</button>
+        <button onClick={(ev) => onDeleteItemFrCart(item.id)}>Delete</button>
       </li>
     );
   };

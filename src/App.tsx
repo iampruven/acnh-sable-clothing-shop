@@ -4,6 +4,7 @@ import { useState } from "react";
 import Shop from "./Pages/Shop/Shop";
 import Cart from "./Pages/Cart/Cart";
 
+
 export interface CartItem {
   id: number;
   quantity: number;
@@ -16,7 +17,7 @@ const calculateTotalCost = (items: any[], cartItems: CartItem[]): number => {
     if (!itemDetails) {
       return sum
     }
-    return sum + itemDetails.cost
+    return sum + itemDetails.cost * item.quantity
   }, 0)
 }
 
@@ -46,6 +47,22 @@ function App() {
     setCartItems(item)
   }
 
+  const onQuantityChange = (id:number, quantity:number)=>{
+    const itemUpdate = cartItems.map((item) => {
+      if(item.id === id){
+        item.quantity = quantity;
+        console.log(item)
+        return item;
+      } else{
+        return item;
+      }
+      
+    });
+    setCartItems(itemUpdate)
+    console.log(cartItems)
+
+  }
+
   const totalCost = calculateTotalCost(allItems, cartItems)
   return (
     <div>
@@ -59,6 +76,7 @@ function App() {
         />
       ) : (
         <Cart
+          onQuantityChange={onQuantityChange}
           onDeleteItemFrCart = {onDeleteItemFrCart}
           totalCost = {totalCost}
           cartItems={cartItems}
