@@ -12,6 +12,7 @@
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page
+    - [X] Align clothing items to make an upside down U with the character in middle and buttons on lower right
 
 - Ideas to do eventually:
     - [] Preview an item on character

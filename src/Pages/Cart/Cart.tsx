@@ -44,7 +44,6 @@ const Cart: React.FC<CartProps> = ({
         />
         {item.name}
         <img src={item.img} alt={item.name} />
-        {item.cost}
         <button onClick={(ev) => onDeleteItemFrCart(item.id)}>Delete</button>
       </li>
     );

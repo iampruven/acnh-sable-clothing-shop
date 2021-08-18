@@ -1,6 +1,38 @@
-.item-grid{
+.clothing-item-grid{
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-row-gap: 20px;
+    grid-template-areas:"header header header header header header header header"
+                        "left left . main main . right right"
+                        "left left . main main . right right"
+                        "left left . main main . right right"
+                        ". . . . . . footer footer";
+}
+
+.grid-header {
+    grid-area: header;
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-row-gap: 10px;
+}
+.grid-left {
+    display: grid;
+    grid-area: left;
+    background-color: blue;
+    grid-template-columns: repeat(2,1fr);
+}
+.grid-right {
+    display: grid;
+    grid-area: right;
+    grid-template-columns: repeat(2,1fr);
+    background-color: green;
+}
+.grid-main{
+    display:grid;
+    grid-area:main;
+}
+.grid-footer{
+    display:grid;
+    grid-area:footer;
+    display:flex;
+    flex-direction: row;
 }

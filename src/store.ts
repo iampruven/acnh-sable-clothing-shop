@@ -17,4 +17,6 @@ export const store = [
   { id: 16, name: "Floral Lace Skirt", cost: 1320, type: "bottom", img: "https://via.placeholder.com/100"},
   { id: 17, name: "Frilly Sweat Pants", cost: 880, type: "bottom", img: "https://via.placeholder.com/100"},
   { id: 18, name: "Muay-thai Shorts", cost: 980, type: "bottom", img: "https://via.placeholder.com/100"},
+  { id: 19, name: "Blossoming Kimono", cost: 3220, type: "dress", img: "https://via.placeholder.com/100"},
+  { id: 20, name: "Bolero Coat", cost: 2080, type: "dress", img: "https://via.placeholder.com/100"},
 ];
