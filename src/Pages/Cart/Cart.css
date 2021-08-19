@@ -8,8 +8,18 @@
 }
 .grid-cart-right{
     grid-area:right;
-
+    width:30rem;
+    height:22rem;
+    overflow:auto;
 }
 .grid-cart-footer{
     grid-area:footer;
+}
+/* .quantity-items{
+    display: flex;
+    flex-direction: column;
+} */
+input{
+    width:1.5em;
+    height:1.5em;
 }

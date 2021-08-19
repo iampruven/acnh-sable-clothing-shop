@@ -33,7 +33,7 @@ const Cart: React.FC<CartProps> = ({
     return (
       <li key={item.id}>
         <input
-          id="quantity-items"
+          className="quantity-items"
           value={quantity}
           min="1"
           onChange={(e) =>

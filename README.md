@@ -10,7 +10,7 @@
     - [X] Allow user to in input different quantities of the item in cart
     - [X] When quantity in cart changes, need to update the total 
     - [X] CSS Grid: Align character/total cost on left and shopping list/buttons on right 
-    - [] Allow scrollable shopping list
+    - [X] Allow scrollable shopping list
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page
