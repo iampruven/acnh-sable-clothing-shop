@@ -16,7 +16,7 @@
     - [X] Display total cost in cart on the store page
     - [X] CSS Grid: Align clothing items to make an upside down U with the character in middle and buttons on lower right
 
-- Ideas to do eventually:
+- Ideas:
     - [] Preview an item on character
     - [] Display how much money the user has
     - [] If user does not have sufficient amount of money, don't allow user to make purchase

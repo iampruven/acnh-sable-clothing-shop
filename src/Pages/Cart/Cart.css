@@ -15,11 +15,28 @@
 .grid-cart-footer{
     grid-area:footer;
 }
-/* .quantity-items{
-    display: flex;
-    flex-direction: column;
-} */
+
+.item-name{
+   width:100px;
+}
+.trash-btn{
+    border:none;
+    background:transparent;
+}
 input{
     width:1.5em;
     height:1.5em;
 }
+ul{
+    padding: 0;
+}
+ul li{
+    list-style-type: none;
+    padding:0;
+    display:flex;
+    align-items: center;
+    justify-content: space-evenly;
+    align-self:flex-start;
+    margin:20px 0;
+}
+/* a */

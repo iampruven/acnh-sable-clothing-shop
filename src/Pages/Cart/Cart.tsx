@@ -31,7 +31,7 @@ const Cart: React.FC<CartProps> = ({
     }
 
     return (
-      <li key={item.id}>
+      <li className="cart-item" key={item.id}>
         <input
           className="quantity-items"
           value={quantity}
@@ -43,9 +43,11 @@ const Cart: React.FC<CartProps> = ({
           }
           type="number"
         />
-        {item.name}
-        <img src={item.img} alt={item.name} />
-        <button onClick={(ev) => onDeleteItemFrCart(item.id)}>Delete</button>
+        <img className="cart-clothes" src={item.img} alt={item.name} />
+        <div className="item-name">{item.name}</div>
+        <button className="trash-btn" onClick={(ev) => onDeleteItemFrCart(item.id)}>
+          <i className="far fa-trash-alt"></i>
+        </button>
       </li>
     );
   };
