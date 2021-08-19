@@ -1,4 +1,5 @@
 import { CartItem } from "../../App";
+import "./Cart.css";
 
 interface CartProps {
   onClickViewCart: () => void;
@@ -50,17 +51,20 @@ const Cart: React.FC<CartProps> = ({
   };
 
   return (
-    <div>
-      <div>
-        <p>Total Cost: {totalCost}</p>
+    <div className="grid-cart-container">
+      <div className="grid-cart-left">
+        <div>
+          <img src="https://via.placeholder.com/100X350" alt="character" />
+        </div>
+        <div>
+          <p>Total Cost: {totalCost}</p>
+        </div>
       </div>
-      <div>
-        <img src="https://via.placeholder.com/100X350" alt="character" />
-      </div>
-      <div>
+
+      <div className="grid-cart-right">
         <ul>{cartItems.map((item) => itemLookUp(item.id, item.quantity))}</ul>
       </div>
-      <div>
+      <div className="grid-cart-footer">
         <button onClick={onClickViewCart}>Go Back</button>
         <button>Select</button>
         <button>Purchase</button>

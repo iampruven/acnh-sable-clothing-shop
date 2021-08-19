@@ -1,0 +1,15 @@
+.grid-cart-container{
+    display:grid;
+    grid-template-areas:"left right"
+                        ". footer";
+}
+.grid-cart-left{
+    grid-area:left;
+}
+.grid-cart-right{
+    grid-area:right;
+
+}
+.grid-cart-footer{
+    grid-area:footer;
+}
