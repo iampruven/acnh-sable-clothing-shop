@@ -23,6 +23,14 @@
     border:none;
     background:transparent;
 }
+.bells{
+    height:40px;
+}
+.cart-money{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 input{
     width:1.5em;
     height:1.5em;

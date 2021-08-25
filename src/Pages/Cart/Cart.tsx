@@ -55,11 +55,11 @@ const Cart: React.FC<CartProps> = ({
   return (
     <div className="grid-cart-container">
       <div className="grid-cart-left">
-        <div>
+        <div className="cart-money">
           <img src="https://via.placeholder.com/100X350" alt="character" />
         </div>
         <div>
-          <p>Total Cost: {totalCost}</p>
+          <p className="cart-money">Total Cost: {totalCost} <img className="bells" src="./img/bells.png" alt="bells money bag" /></p>
         </div>
       </div>
 
@@ -69,7 +69,7 @@ const Cart: React.FC<CartProps> = ({
       <div className="grid-cart-footer">
         <button onClick={onClickViewCart}>Go Back</button>
         <button>Select</button>
-        <button>Purchase</button>
+        <button><i className="fas fa-check"></i> Purchase</button>
       </div>
     </div>
   );

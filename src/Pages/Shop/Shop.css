@@ -1,5 +1,6 @@
 .clothing-item-grid{
     display: grid;
+    grid-template-columns: repeat(8,1fr);
     grid-template-areas:"header header header header header header header header"
                         "left left . main main . right right"
                         "left left . main main . right right"
@@ -9,7 +10,6 @@
 
 .grid-header {
     grid-area: header;
-    background-color: red;
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-row-gap: 10px;
@@ -17,14 +17,12 @@
 .grid-left {
     display: grid;
     grid-area: left;
-    background-color: blue;
     grid-template-columns: repeat(2,1fr);
 }
 .grid-right {
     display: grid;
     grid-area: right;
     grid-template-columns: repeat(2,1fr);
-    background-color: green;
 }
 .grid-main{
     display:grid;
@@ -35,4 +33,18 @@
     grid-area:footer;
     display:flex;
     flex-direction: row;
+}
+.grid-style{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.bells{
+    height:40px;
+}
+.total-money{
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
