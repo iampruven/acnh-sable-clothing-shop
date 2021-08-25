@@ -11,14 +11,14 @@
     - [X] When quantity in cart changes, need to update the total 
     - [X] CSS Grid: Align character/total cost on left and shopping list/buttons on right 
     - [X] Allow scrollable shopping list
-    - [] Update cart with actual clothing items
+    - [X] Update cart with actual clothing items
     - [] Create confirmation modal for delete 
     - [] Create confirmation modal for multiple items
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page
     - [X] CSS Grid: Align clothing items to make an upside down U with the character in middle and buttons on lower right
-    - [] Update store with actual clothing items
+    - [X] Update store with actual clothing items
 
 - Ideas:
     - [] Preview an item on character
