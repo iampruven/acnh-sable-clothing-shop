@@ -99,7 +99,7 @@ const Cart: React.FC<CartProps> = ({
       <div className="grid-cart-footer">
         <button onClick={onClickViewCart}>Go Back</button>
         <button>Select</button>
-        <button>
+        <button className="mouse-style">
           <i className="fas fa-check"></i> Purchase
         </button>
       </div>
