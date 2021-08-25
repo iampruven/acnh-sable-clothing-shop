@@ -5,6 +5,7 @@ import Shop from "./Pages/Shop/Shop";
 import Cart from "./Pages/Cart/Cart";
 
 
+
 export interface CartItem {
   id: number;
   quantity: number;

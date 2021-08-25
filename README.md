@@ -12,8 +12,8 @@
     - [X] CSS Grid: Align character/total cost on left and shopping list/buttons on right 
     - [X] Allow scrollable shopping list
     - [X] Update cart with actual clothing items
-    - [] Create confirmation modal for delete 
-    - [] Create confirmation modal for multiple items
+    - [X] Create confirmation modal for delete 
+    - [] Create confirmation modal for adding multiple items
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page

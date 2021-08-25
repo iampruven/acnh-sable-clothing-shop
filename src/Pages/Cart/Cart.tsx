@@ -1,5 +1,12 @@
 import { CartItem } from "../../App";
 import "./Cart.css";
+import Button from "@material-ui/core/Button";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import { useState } from "react";
 
 interface CartProps {
   onClickViewCart: () => void;
@@ -24,6 +31,19 @@ const Cart: React.FC<CartProps> = ({
   totalCost,
   onDeleteItemFrCart,
 }) => {
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [promptDeleteThisItem, setPromptDeleteThisItem] = useState<{
+    id: number;
+    name: string;
+  } | null>(null);
+  const onDeleteClick = (id: number, name: string) => {
+    setDeleteDialogOpen(true);
+    setPromptDeleteThisItem({ id, name });
+  };
+  const onYesClickDelete = (id: number) => {
+    onDeleteItemFrCart(id);
+    setDeleteDialogOpen(false);
+  };
   const itemLookUp = (id: number, quantity: number) => {
     const item = allItems.find((item) => item.id === id);
     if (!item) {
@@ -45,7 +65,10 @@ const Cart: React.FC<CartProps> = ({
         />
         <img className="cart-clothes" src={item.img} alt={item.name} />
         <div className="item-name">{item.name}</div>
-        <button className="trash-btn" onClick={(ev) => onDeleteItemFrCart(item.id)}>
+        <button
+          className="trash-btn"
+          onClick={() => onDeleteClick(item.id, item.name)}
+        >
           <i className="far fa-trash-alt"></i>
         </button>
       </li>
@@ -59,7 +82,14 @@ const Cart: React.FC<CartProps> = ({
           <img src="https://via.placeholder.com/100X350" alt="character" />
         </div>
         <div>
-          <p className="cart-money">Total Cost: {totalCost} <img className="bells" src="./img/bells.png" alt="bells money bag" /></p>
+          <p className="cart-money">
+            Total Cost: {totalCost}{" "}
+            <img
+              className="bells"
+              src="./img/bells.png"
+              alt="bells money bag"
+            />
+          </p>
         </div>
       </div>
 
@@ -69,8 +99,46 @@ const Cart: React.FC<CartProps> = ({
       <div className="grid-cart-footer">
         <button onClick={onClickViewCart}>Go Back</button>
         <button>Select</button>
-        <button><i className="fas fa-check"></i> Purchase</button>
+        <button>
+          <i className="fas fa-check"></i> Purchase
+        </button>
       </div>
+      {promptDeleteThisItem && <Dialog
+        open={deleteDialogOpen}
+        onClose={() => setDeleteDialogOpen(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          Are you sure you want to remove this{" "}
+          {!promptDeleteThisItem ? "" : promptDeleteThisItem.name} from the
+          cart?
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Confirm with yes to delete or no to keep the{" "}
+            {!promptDeleteThisItem ? "" : promptDeleteThisItem.name} in the
+            cart.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button
+            onClick={() =>
+              onYesClickDelete(promptDeleteThisItem.id)
+            }
+            color="primary"
+          >
+            Yes
+          </Button>
+          <Button
+            onClick={() => setDeleteDialogOpen(false)}
+            color="primary"
+            autoFocus
+          >
+            No
+          </Button>
+        </DialogActions>
+      </Dialog>}
     </div>
   );
 };
