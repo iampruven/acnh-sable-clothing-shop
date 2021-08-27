@@ -13,8 +13,9 @@
     - [X] Allow scrollable shopping list
     - [X] Update cart with actual clothing items
     - [X] Create confirmation modal for delete 
+    - [X] Preview item display while in cart view
     - [] Create confirmation modal for adding multiple items
-    - [] Preview item display while in cart view
+
 - Store front
     - [X] Display how much an item cost
     - [X] Display total cost in cart on the store page

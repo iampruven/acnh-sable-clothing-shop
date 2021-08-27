@@ -11,20 +11,23 @@ export interface CartItem {
 
 const calculateTotalCost = (items: any[], cartItems: CartItem[]): number => {
   return cartItems.reduce((sum, item) => {
-    const itemDetails = items.find(x => x.id === item.id)
+    const itemDetails = items.find((x) => x.id === item.id);
 
     if (!itemDetails) {
-      return sum
+      return sum;
     }
-    return sum + itemDetails.cost * item.quantity
-  }, 0)
-}
+    return sum + itemDetails.cost * item.quantity;
+  }, 0);
+};
 
 function App() {
   const [page, setPage] = useState("shop");
   const [allItems, setAllItems] = useState(store);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [previewItem, setPreviewItem] = useState('')
+  const [previewItem, setPreviewItem] = useState({
+    previewImg: "./img/character/default.png",
+    altDesc: "default outfit",
+  });
 
   const onAddToCart = (id: number) => {
     let list = [];
@@ -40,38 +43,35 @@ function App() {
     }
   };
 
-  const onPrevItem = (id:number)=>{
+  const onPrevItem = (id: number) => {
     const item = allItems.filter((item) => item.id === id);
-    console.log(item[0].prevImg);
-    setPreviewItem(item[0].prevImg)
+    setPreviewItem({ previewImg: item[0].prevImg, altDesc: item[0].name });
     if (!item) {
       return false;
     } else {
       return true;
     }
-    
-  }
+  };
 
-  const onDeleteItemFrCart = (id:number)=>{
+  const onDeleteItemFrCart = (id: number) => {
     const item = cartItems.filter((item) => item.id !== id);
-    setCartItems(item)
-  }
+    setCartItems(item);
+  };
 
-  const onQuantityChange = (id:number, quantity:number)=>{
+  const onQuantityChange = (id: number, quantity: number) => {
     const itemUpdate = cartItems.map((item) => {
-      if(item.id === id){
+      if (item.id === id) {
         item.quantity = quantity;
-        console.log(item)
+        console.log(item);
         return item;
-      } else{
+      } else {
         return item;
       }
-      
     });
-    setCartItems(itemUpdate)
-  }
+    setCartItems(itemUpdate);
+  };
 
-  const totalCost = calculateTotalCost(allItems, cartItems)
+  const totalCost = calculateTotalCost(allItems, cartItems);
   return (
     <div>
       {page === "shop" ? (
@@ -79,16 +79,17 @@ function App() {
           previewItem={previewItem}
           onPrevItem={onPrevItem}
           cartItems={cartItems}
-          totalCost = {totalCost}
+          totalCost={totalCost}
           onAddToCart={onAddToCart}
           onClickViewCart={onClickViewCart}
           allItems={allItems}
         />
       ) : (
         <Cart
+          previewItem={previewItem}
           onQuantityChange={onQuantityChange}
-          onDeleteItemFrCart = {onDeleteItemFrCart}
-          totalCost = {totalCost}
+          onDeleteItemFrCart={onDeleteItemFrCart}
+          totalCost={totalCost}
           cartItems={cartItems}
           onClickViewCart={onClickViewCart}
           allItems={allItems}

@@ -21,6 +21,7 @@ interface CartProps {
     prevImg: string;
   }[];
   totalCost: number;
+  previewItem: {previewImg:string, altDesc:string};
   onDeleteItemFrCart: (id: number) => void;
 }
 
@@ -30,6 +31,7 @@ const Cart: React.FC<CartProps> = ({
   onQuantityChange,
   cartItems,
   totalCost,
+  previewItem,
   onDeleteItemFrCart,
 }) => {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
@@ -80,7 +82,7 @@ const Cart: React.FC<CartProps> = ({
     <div className="grid-cart-container">
       <div className="grid-cart-left">
         <div className="cart-money">
-          <img src="https://via.placeholder.com/100X350" alt="character" />
+          <img src={previewItem.previewImg} alt={previewItem.previewImg} />
         </div>
         <div>
           <p className="cart-money">

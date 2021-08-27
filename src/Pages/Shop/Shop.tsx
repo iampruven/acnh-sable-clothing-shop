@@ -15,7 +15,7 @@ interface ShopProps {
   }[];
   totalCost: number;
   cartItems: CartItem[];
-  previewItem: string;
+  previewItem: { previewImg: string; altDesc: string };
 }
 
 const Shop: React.FC<ShopProps> = ({
@@ -41,7 +41,7 @@ const Shop: React.FC<ShopProps> = ({
     const item = allItems.find((item) => item.id === id);
     if (!item) {
       return false;
-    } else if (item.prevImg === previewItem) {
+    } else if (item.prevImg === previewItem.previewImg) {
       return true;
     } else {
       return false;
@@ -122,7 +122,7 @@ const Shop: React.FC<ShopProps> = ({
       <div className="grid-right">{rightSix}</div>
 
       <div className="grid-main">
-        <img src={previewItem} alt="character" />
+        <img src={previewItem.previewImg} alt={previewItem.altDesc} />
 
         <div className="total-money">
           Total Cost: {totalCost}{" "}
