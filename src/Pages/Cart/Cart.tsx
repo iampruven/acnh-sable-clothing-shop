@@ -82,7 +82,7 @@ const Cart: React.FC<CartProps> = ({
     <div className="grid-cart-container">
       <div className="grid-cart-left">
         <div className="cart-money">
-          <img src={previewItem.previewImg} alt={previewItem.previewImg} />
+          <img src={previewItem.previewImg} alt={previewItem.altDesc} />
         </div>
         <div>
           <p className="cart-money">
