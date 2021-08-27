@@ -4,23 +4,28 @@ import "./Shop.css";
 interface ShopProps {
   onClickViewCart: () => void;
   onAddToCart: (id: number) => void;
+  onPrevItem: (id: number) => void;
   allItems: {
     id: number;
     name: string;
     cost: number;
     type: string;
     img: string;
+    prevImg: string;
   }[];
   totalCost: number;
   cartItems: CartItem[];
+  previewItem: string;
 }
 
 const Shop: React.FC<ShopProps> = ({
   onClickViewCart,
+  onPrevItem,
   allItems,
   onAddToCart,
   totalCost,
   cartItems,
+  previewItem,
 }) => {
   const onDisabledIfInCart = (id: number) => {
     const item = cartItems.find((item) => item.id === id);
@@ -32,12 +37,31 @@ const Shop: React.FC<ShopProps> = ({
     }
   };
 
+  const onDisablePreview = (id: number) => {
+    const item = allItems.find((item) => item.id === id);
+    if (!item) {
+      return false;
+    } else if (item.prevImg === previewItem) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const headerEight = allItems.slice(0, 8).map((item) => (
     <div key={item.id} className="grid-style">
       <div>
         <img src={item.img} alt={item.name} />
       </div>
-      <div>{item.cost} <img src="./img/coin.png" alt="money symbol"/></div>
+      <div>
+        {item.cost} <img src="./img/coin.png" alt="money symbol" />
+      </div>
+      <button
+        disabled={onDisablePreview(item.id)}
+        onClick={() => onPrevItem(item.id)}
+      >
+        <i className="far fa-eye"></i> Preview
+      </button>
       <button
         disabled={onDisabledIfInCart(item.id)}
         onClick={() => onAddToCart(item.id)}
@@ -52,7 +76,15 @@ const Shop: React.FC<ShopProps> = ({
       <div>
         <img src={item.img} alt={item.name} />
       </div>
-      <div>{item.cost} <img src="./img/coin.png" alt="money symbol"/></div>
+      <div>
+        {item.cost} <img src="./img/coin.png" alt="money symbol" />
+      </div>
+      <button
+        disabled={onDisablePreview(item.id)}
+        onClick={() => onPrevItem(item.id)}
+      >
+        <i className="far fa-eye"></i> Preview
+      </button>
       <button
         disabled={onDisabledIfInCart(item.id)}
         onClick={() => onAddToCart(item.id)}
@@ -66,7 +98,15 @@ const Shop: React.FC<ShopProps> = ({
       <div>
         <img src={item.img} alt={item.name} />
       </div>
-      <div>{item.cost} <img src="./img/coin.png" alt="money symbol"/></div>
+      <div>
+        {item.cost} <img src="./img/coin.png" alt="money symbol" />
+      </div>
+      <button
+        disabled={onDisablePreview(item.id)}
+        onClick={() => onPrevItem(item.id)}
+      >
+        <i className="far fa-eye"></i> Preview
+      </button>
       <button
         disabled={onDisabledIfInCart(item.id)}
         onClick={() => onAddToCart(item.id)}
@@ -82,14 +122,20 @@ const Shop: React.FC<ShopProps> = ({
       <div className="grid-right">{rightSix}</div>
 
       <div className="grid-main">
-        <img src="https://via.placeholder.com/250X400" alt="character" />
+        <img src={previewItem} alt="character" />
 
-        <div className="total-money">{totalCost} <img className="bells" src="./img/bells.png" alt="bells money bag" /></div>
+        <div className="total-money">
+          Total Cost: {totalCost}{" "}
+          <img className="bells" src="./img/bells.png" alt="bells money bag" />
+        </div>
       </div>
       <div className="grid-footer">
-        <button><i className="fas fa-times"></i> Cancel</button>
-        <button><i className="far fa-eye"></i> Preview</button>
-        <button onClick={() => onClickViewCart()}>View <i className="fas fa-shopping-cart"></i></button>
+        <button>
+          <i className="fas fa-times"></i> Cancel
+        </button>
+        <button onClick={() => onClickViewCart()}>
+          View <i className="fas fa-shopping-cart"></i>
+        </button>
       </div>
     </div>
   );

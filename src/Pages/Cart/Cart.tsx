@@ -18,6 +18,7 @@ interface CartProps {
     cost: number;
     type: string;
     img: string;
+    prevImg: string;
   }[];
   totalCost: number;
   onDeleteItemFrCart: (id: number) => void;

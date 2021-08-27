@@ -4,8 +4,6 @@ import { useState } from "react";
 import Shop from "./Pages/Shop/Shop";
 import Cart from "./Pages/Cart/Cart";
 
-
-
 export interface CartItem {
   id: number;
   quantity: number;
@@ -26,7 +24,7 @@ function App() {
   const [page, setPage] = useState("shop");
   const [allItems, setAllItems] = useState(store);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
- 
+  const [previewItem, setPreviewItem] = useState('')
 
   const onAddToCart = (id: number) => {
     let list = [];
@@ -42,6 +40,17 @@ function App() {
     }
   };
 
+  const onPrevItem = (id:number)=>{
+    const item = allItems.filter((item) => item.id === id);
+    console.log(item[0].prevImg);
+    setPreviewItem(item[0].prevImg)
+    if (!item) {
+      return false;
+    } else {
+      return true;
+    }
+    
+  }
 
   const onDeleteItemFrCart = (id:number)=>{
     const item = cartItems.filter((item) => item.id !== id);
@@ -60,8 +69,6 @@ function App() {
       
     });
     setCartItems(itemUpdate)
-    console.log(cartItems)
-
   }
 
   const totalCost = calculateTotalCost(allItems, cartItems)
@@ -69,6 +76,8 @@ function App() {
     <div>
       {page === "shop" ? (
         <Shop
+          previewItem={previewItem}
+          onPrevItem={onPrevItem}
           cartItems={cartItems}
           totalCost = {totalCost}
           onAddToCart={onAddToCart}
