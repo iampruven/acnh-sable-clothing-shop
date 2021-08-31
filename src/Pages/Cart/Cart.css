@@ -5,6 +5,9 @@
 }
 .grid-cart-left{
     grid-area:left;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 .grid-cart-right{
     grid-area:right;
@@ -43,7 +46,7 @@
     background-color:rgb(175, 160, 71);
     border-radius: 80px;
     width:200px;
-    align-content: center;
+    align-items: center;
 }
 .money-bag{
     border-top: dashed 3px white;

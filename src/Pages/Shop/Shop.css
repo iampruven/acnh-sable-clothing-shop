@@ -25,11 +25,11 @@
     grid-template-columns: repeat(2,1fr);
 }
 .grid-main{
-    /* display:grid; */
     grid-area:main;
     display:flex;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
 }
 .grid-footer{
     display:grid;
@@ -48,12 +48,11 @@
 }
 .total-money-container{
     display:flex;
-
+    align-items: center;
     justify-content: center;
     background-color:rgb(175, 160, 71);
     border-radius: 80px;
     width:200px;
-    align-content: center;
 }
 .money-bag{
     border-top: dashed 3px white;
