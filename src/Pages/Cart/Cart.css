@@ -36,6 +36,43 @@
     justify-content: center;
     align-items: center;
 }
+.total-money-container{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color:rgb(175, 160, 71);
+    border-radius: 80px;
+    width:200px;
+    align-content: center;
+}
+.money-bag{
+    border-top: dashed 3px white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.btn-style{
+    border:none;
+    background-color: rgb(240, 222, 198);
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    border-radius: 80px;
+}
+.btn-style:hover{
+    cursor: pointer;
+}
+.purchase-style{
+    border:none;
+    background-color: teal;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    border-radius: 80px;
+    color:whitesmoke;
+}
+.purchase-style:hover{
+    cursor: pointer;
+}
 input{
     width:1.5em;
     height:1.5em;

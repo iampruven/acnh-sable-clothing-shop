@@ -14,7 +14,7 @@
     - [X] Update cart with actual clothing items
     - [X] Create confirmation modal for delete 
     - [X] Preview item display while in cart view
-    - [] Create confirmation modal for adding multiple items
+    - [X] Create confirmation modal for adding multiple items
 
 - Store front
     - [X] Display how much an item cost
@@ -23,7 +23,7 @@
     - [X] Update store with actual clothing items
     - [X] Preview an item on character
 
-- Ideas:
+- Ideas todo Maybe(?):
     
     - [] Display how much money the user has
     - [] If user does not have sufficient amount of money, don't allow user to make purchase

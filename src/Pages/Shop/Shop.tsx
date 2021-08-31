@@ -124,9 +124,18 @@ const Shop: React.FC<ShopProps> = ({
       <div className="grid-main">
         <img src={previewItem.previewImg} alt={previewItem.altDesc} />
 
-        <div className="total-money">
-          Total Cost: {totalCost}{" "}
-          <img className="bells" src="./img/bells.png" alt="bells money bag" />
+        <div className="total-money-container">
+          <div>
+            <p className="cart-money">Total Cost: </p>
+          </div>
+          <div className="money-bag">
+            {totalCost}
+            <img
+              className="bells"
+              src="./img/bells.png"
+              alt="bells money bag"
+            />
+          </div>
         </div>
       </div>
       <div className="grid-footer">
