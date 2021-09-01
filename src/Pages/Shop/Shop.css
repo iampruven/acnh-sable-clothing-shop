@@ -48,7 +48,6 @@
 }
 .total-money-container{
     display:flex;
-    align-items: center;
     justify-content: center;
     background-color:rgb(175, 160, 71);
     border-radius: 80px;

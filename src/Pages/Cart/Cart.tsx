@@ -8,6 +8,7 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import { useState } from "react";
+import TotalCostMoney from "../../Components/TotalCostMoney/TotalCostMoney";
 
 interface CartProps {
   onClickViewCart: () => void;
@@ -119,14 +120,7 @@ const Cart: React.FC<CartProps> = ({
           <div>
             <p className="cart-money">Total Cost: </p>
           </div>
-          <div className="money-bag">
-            {totalCost}
-            <img
-              className="bells"
-              src="./img/bells.png"
-              alt="bells money bag"
-            />
-          </div>
+          <TotalCostMoney totalCost={totalCost} />
         </div>
       </div>
 

@@ -1,4 +1,5 @@
 import { CartItem } from "../../App";
+import TotalCostMoney from '../../Components/TotalCostMoney/TotalCostMoney';
 import "./Shop.css";
 
 interface ShopProps {
@@ -128,14 +129,7 @@ const Shop: React.FC<ShopProps> = ({
           <div>
             <p className="cart-money">Total Cost: </p>
           </div>
-          <div className="money-bag">
-            {totalCost}
-            <img
-              className="bells"
-              src="./img/bells.png"
-              alt="bells money bag"
-            />
-          </div>
+          <TotalCostMoney totalCost={totalCost} />
         </div>
       </div>
       <div className="grid-footer">
